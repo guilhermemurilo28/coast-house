@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coast House — Guia do Hóspede</title>
+<meta name="description" content="Guia do hóspede da Coast House: Wi-Fi, informações da casa, comodidades, dicas locais e reserva direta. A poucos passos do mar, na Praia do Retirinho, Aracati, Ceará.">
+<meta name="theme-color" content="#0E7C86">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Coast House — praia/mar. Display: Fraunces · Corpo: Figtree */
+:root{
+  --sea:#0E7C86; --sea-deep:#094E55; --night:#143733;
+  --straw:#C99A4E; --straw-soft:#EAD9B0; --straw-bg:#F4EAD3;
+  --moss:#6B7A44; --wood:#9A5B33;
+  --linen:#FBF8F1; --linen-2:#F4ECDD;
+  --ink:#23322E; --muted:#5E6B63; --line:rgba(20,55,51,.12);
+  --r:14px; --r-lg:26px; --r-pill:999px;
+  --disp:'Fraunces',Georgia,serif;
+  --body:'Figtree',system-ui,-apple-system,sans-serif;
+  --shadow:0 18px 50px -22px rgba(9,78,85,.45);
+  --shadow-soft:0 10px 30px -18px rgba(9,78,85,.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--linen);color:var(--ink);line-height:1.62;overflow-x:hidden;font-weight:400}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+section{scroll-margin-top:70px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--body);
+  font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sea-deep)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--straw);border-radius:2px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 22px;transition:background .4s,box-shadow .4s,padding .4s}
+.nav.scrolled{background:rgba(251,248,241,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav-brand{font-family:var(--disp);font-size:1.18rem;font-weight:600;color:#fff;transition:color .4s;display:flex;align-items:center;gap:.5rem}
+.nav.scrolled .nav-brand{color:var(--night)}
+.nav-brand .dot{width:8px;height:8px;border-radius:50%;background:var(--straw);box-shadow:0 0 0 4px rgba(201,154,78,.25)}
+.nav-links{display:flex;gap:1.4rem;font-size:.83rem;font-weight:500}
+.nav-links a{color:rgba(255,255,255,.92);transition:color .4s}
+.nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--straw)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;background:#0b4a52}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(9,57,63,.45) 0%,rgba(9,57,63,.08) 32%,rgba(9,57,63,.55) 78%,rgba(9,57,63,.86) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:0 0 clamp(2rem,5vw,4rem)}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:var(--straw)}
+.hero h1{font-size:clamp(3.4rem,13vw,8rem);font-weight:500;margin:.5rem 0 .4rem;letter-spacing:-.025em;text-shadow:0 4px 40px rgba(0,0,0,.3)}
+.hero .lead{font-size:clamp(1.02rem,2.4vw,1.32rem);max-width:32ch;font-weight:300;color:rgba(255,255,255,.94)}
+.hero .lead em{font-family:var(--disp);font-style:italic;color:var(--straw-soft)}
+.hero .rating{margin-top:1.1rem;display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;color:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:.4rem .9rem;border-radius:var(--r-pill)}
+.hero .rating svg{width:16px;height:16px;color:var(--straw-soft)}
+
+/* concierge */
+.concierge{position:relative;z-index:3;margin:-46px auto 0;max-width:1080px;padding:0 22px}
+.concierge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  background:var(--linen);border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.q{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.55rem;padding:18px 10px;border-radius:var(--r);
+  background:var(--linen-2);transition:transform .25s,background .25s;border:1px solid transparent}
+.q:hover{transform:translateY(-3px);background:#fff;border-color:var(--line)}
+.q .ic{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--sea);box-shadow:var(--shadow-soft)}
+.q .ic svg{width:22px;height:22px}
+.q b{font-family:var(--disp);font-weight:600;font-size:1.02rem;color:var(--night)}
+.q span{font-size:.76rem;color:var(--muted)}
+@media(max-width:560px){.concierge-grid{grid-template-columns:1fr;gap:10px}.q{flex-direction:row;justify-content:flex-start;text-align:left;padding:14px 16px}}
+
+/* SECTION BASE */
+.s{padding:clamp(3.4rem,8vw,6rem) 0}
+.s-head{max-width:62ch;margin-bottom:2.4rem}
+.s-head h2{font-size:clamp(1.9rem,5vw,3rem);margin:.7rem 0 .6rem;color:var(--night)}
+.s-head p{color:var(--muted);font-size:1.04rem}
+
+/* welcome */
+.welcome{background:var(--straw-bg);position:relative}
+.welcome-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,4vw,3.4rem);align-items:center}
+.welcome-text p{margin-bottom:1rem;color:#41524c;font-size:1.06rem}
+.welcome-text .big{font-family:var(--disp);font-size:clamp(1.4rem,3vw,1.9rem);font-style:italic;color:var(--sea-deep);line-height:1.25;margin-bottom:1.2rem}
+.welcome-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5}
+.welcome-img img{width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.welcome-grid{grid-template-columns:1fr}.welcome-img{aspect-ratio:16/10;order:-1}}
+
+/* WIFI */
+.wifi{background:var(--sea-deep);color:#fff}
+.wifi .eyebrow{color:var(--straw-soft)}
+.wifi-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.4rem,4vw,3rem);align-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-lg);padding:clamp(1.4rem,3vw,2.4rem)}
+.wifi-qr{background:var(--linen);padding:12px;border-radius:18px;width:172px;height:172px;box-shadow:var(--shadow)}
+.wifi-qr img{width:100%;height:100%}
+.wifi h2{color:#fff;font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:.3rem}
+.wifi .sub{color:rgba(255,255,255,.8);margin-bottom:1.4rem}
+.field{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:.7rem 1rem;margin-bottom:.7rem}
+.field .k{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.field .v{font-family:var(--disp);font-size:1.3rem;font-weight:600;letter-spacing:.02em}
+.copy{flex-shrink:0;display:inline-flex;align-items:center;gap:.45rem;background:var(--straw);color:var(--night);
+  border:none;font-family:var(--body);font-weight:700;font-size:.82rem;padding:.6rem 1rem;border-radius:var(--r-pill);cursor:pointer;transition:transform .2s,background .2s}
+.copy:hover{transform:translateY(-2px)}
+.copy.done{background:#7FB069;color:#0c2b13}
+.copy svg{width:15px;height:15px}
+.wifi-hint{font-size:.85rem;color:rgba(255,255,255,.72);margin-top:.5rem}
+@media(max-width:620px){.wifi-card{grid-template-columns:1fr;text-align:center;justify-items:center}.field{width:100%;text-align:left}}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px}
+.gal figure{overflow:hidden;border-radius:var(--r);position:relative;cursor:pointer;background:#dfe7e2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:12px;bottom:10px;color:#fff;font-size:.8rem;font-weight:600;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);opacity:0;transform:translateY(6px);transition:.3s}
+.gal figure:hover figcaption{opacity:1;transform:none}
+.gal .tall{grid-row:span 2}.gal .wide{grid-column:span 2}
+@media(max-width:760px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}.gal .wide{grid-column:span 2}}
+
+/* AMENITIES */
+.amen{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.amen{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.amen{grid-template-columns:1fr}}
+.amen .item{display:flex;align-items:center;gap:.85rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;box-shadow:var(--shadow-soft)}
+.amen .item .ic{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:var(--straw-bg);color:var(--wood);display:grid;place-items:center}
+.amen .item .ic svg{width:21px;height:21px}
+.amen .item b{font-family:var(--disp);font-weight:600;font-size:1.02rem;color:var(--night);display:block}
+.amen .item span{font-size:.85rem;color:var(--muted)}
+
+/* MANUAL cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:720px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:1.6rem 1.7rem;box-shadow:var(--shadow-soft)}
+.card h3{font-size:1.3rem;color:var(--night);margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem}
+.card h3 .tag{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--straw-bg);color:var(--wood);padding:.25rem .6rem;border-radius:var(--r-pill)}
+
+/* rules */
+.rules{background:var(--night);color:#eaf2ef}
+.rules .eyebrow{color:var(--straw-soft)}
+.rules .s-head h2{color:#fff}.rules .s-head p{color:rgba(255,255,255,.72)}
+.rule-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:680px){.rule-grid{grid-template-columns:1fr}}
+.rule{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:1.2rem 1.3rem}
+.rule h4{font-family:var(--disp);font-size:1.12rem;font-weight:600;margin-bottom:.3rem;color:#fff;display:flex;align-items:center;gap:.5rem}
+.rule h4 .n{font-size:.78rem;color:var(--straw);font-weight:700}
+.rule p{font-size:.92rem;color:rgba(255,255,255,.78)}
+
+/* local tips */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.tips{grid-template-columns:1fr}}
+.tip{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow-soft)}
+.tip .ico{width:40px;height:40px;border-radius:12px;background:var(--sea);color:#fff;display:grid;place-items:center;margin-bottom:.9rem}
+.tip h4{font-family:var(--disp);font-size:1.18rem;font-weight:600;color:var(--night);margin-bottom:.4rem}
+.tip p{color:var(--muted);font-size:.95rem}
+.tip ul{list-style:none;margin-top:.5rem}
+.tip li{position:relative;padding-left:1.1rem;margin-bottom:.35rem;color:#3c4a44;font-size:.92rem}
+.tip li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--straw)}
+
+/* contacts */
+.contacts{background:var(--sea-deep);color:#fff}
+.contacts .eyebrow{color:var(--straw-soft)}
+.contacts .s-head h2{color:#fff}.contacts .s-head p{color:rgba(255,255,255,.75)}
+.con-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:620px){.con-grid{grid-template-columns:1fr}}
+.con{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r);padding:1rem 1.2rem;transition:background .25s,transform .25s}
+.con:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.con .av{width:46px;height:46px;flex-shrink:0;border-radius:50%;background:var(--straw);color:var(--night);display:grid;place-items:center;font-weight:700}
+.con .meta{flex:1;min-width:0}
+.con .role{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.con .name{font-family:var(--disp);font-weight:600;font-size:1.12rem}
+.con .num{font-size:.9rem;color:var(--straw-soft)}
+.con .wa{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:#25D366;color:#06310f;display:grid;place-items:center}
+.con .wa svg{width:20px;height:20px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--body);font-weight:700;font-size:.95rem;
+  padding:.95rem 1.7rem;border-radius:var(--r-pill);cursor:pointer;transition:transform .22s,box-shadow .22s;border:none}
+.btn svg{width:18px;height:18px}
+.btn-airbnb{background:#FF385C;color:#fff;box-shadow:0 14px 30px -14px rgba(255,56,92,.7)}
+.btn-airbnb:hover{transform:translateY(-3px)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--night)}
+.btn-light{background:var(--straw);color:var(--night)}
+.btn-light:hover{transform:translateY(-3px)}
+
+/* footer */
+.foot{background:var(--night);color:#cfe0db;text-align:center;padding:clamp(3rem,7vw,5rem) 0}
+.foot h2{font-size:clamp(1.8rem,5vw,2.8rem);color:#fff;margin-bottom:.7rem}
+.foot p{color:rgba(255,255,255,.72);max-width:48ch;margin:0 auto 1.8rem}
+.foot .hash{margin-top:2.2rem;font-size:.86rem;color:rgba(255,255,255,.6)}
+.foot .hash b{color:var(--straw-soft)}
+.foot .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.foot .sep{width:46px;height:2px;background:var(--straw);margin:1.6rem auto;border-radius:2px}
+
+/* invest */
+.invest{position:relative;color:#fff;overflow:hidden;background:#0b4a52}
+.invest-bg{position:absolute;inset:0}
+.invest-bg img{width:100%;height:100%;object-fit:cover}
+.invest::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(9,57,63,.94) 0%,rgba(9,57,63,.74) 48%,rgba(11,74,82,.4) 100%)}
+.invest-inner{position:relative;z-index:2;padding:clamp(3.6rem,8vw,6.5rem) 0;max-width:660px}
+.invest .eyebrow{color:var(--straw-soft)}
+.invest h2{font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin:.7rem 0 .8rem}
+.invest p{color:rgba(255,255,255,.92);font-size:1.08rem;margin-bottom:1.9rem}
+.invest .btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-invest{background:var(--straw);color:var(--night)}
+.btn-invest:hover{transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(201,154,78,.7)}
+.btn-outline-l{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+.invest .selo{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;letter-spacing:.04em;color:rgba(255,255,255,.85);margin-top:1.4rem}
+
+/* floating whatsapp */
+.fab{position:fixed;right:18px;bottom:18px;z-index:120;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;
+  display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(6,49,15,.6);transition:transform .25s}
+.fab:hover{transform:scale(1.08)}
+.fab svg{width:30px;height:30px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(9,40,44,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb img{max-width:94vw;max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .x{position:absolute;top:20px;right:24px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;border:none;font-size:1.4rem;cursor:pointer}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+:focus-visible{outline:3px solid var(--straw);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#top"><span class="dot"></span>Coast House</a>
+  <div class="nav-links">
+    <a href="#wifi">Wi-Fi</a>
+    <a href="#casa">A casa</a>
+    <a href="#comodidades">Comodidades</a>
+    <a href="#dicas">Dicas</a>
+    <a href="#investir">Investir</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img class="hero-img" src="hero.jpg" alt="Coast House ao entardecer: casa iluminada com piscina e jardim na Praia do Retirinho">
+  <div class="hero-inner wrap">
+    <span class="eyebrow">Praia do Retirinho · Aracati · Ceará</span>
+    <h1>Coast House</h1>
+    <p class="lead">Bem-vindo ao seu refúgio a poucos passos do mar. Aqui você <em>respira, desacelera</em> e encontra tudo o que precisa para a sua estadia.</p>
+    <div class="rating">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg>
+      4,96 · Superhost · 24 avaliações no Airbnb
+    </div>
+  </div>
+</header>
+
+<!-- CONCIERGE -->
+<div class="concierge">
+  <div class="concierge-grid">
+    <a class="q" href="#wifi">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/><path d="M2 9a15 15 0 0 1 20 0"/></svg></span>
+      <b>Wi-Fi</b><span>Conecte em 1 toque</span>
+    </a>
+    <a class="q" href="https://www.airbnb.com.br/rooms/1440081180322456859" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.6 0 2.9 1 3.8 2.8 3.2 6.1 5.2 10.3 5.2 12.6A4.6 4.6 0 0 1 16.4 22c-1.6 0-2.8-.8-3.6-2.3l-.8-1.5-.8 1.5C10.4 21.2 9.2 22 7.6 22A4.6 4.6 0 0 1 3 17.4c0-2.3 2-6.5 5.2-12.6C9.1 3 10.4 2 12 2Zm0 2.4c-.6 0-1.1.5-1.7 1.6C7.4 11.5 5.4 15.5 5.4 17.4A2.2 2.2 0 0 0 7.6 19.6c.9 0 1.5-.5 2-1.5l1-1.9c-.9-1.2-1.5-2.4-1.5-3.5A2.9 2.9 0 0 1 12 9.8a2.9 2.9 0 0 1 2.9 2.9c0 1.1-.6 2.3-1.5 3.5l1 1.9c.5 1 1.1 1.5 2 1.5a2.2 2.2 0 0 0 2.2-2.2c0-1.9-2-5.9-4.9-11.4-.6-1.1-1.1-1.6-1.7-1.6Z"/></svg></span>
+      <b>Airbnb</b><span>Reservar &amp; avaliar</span>
+    </a>
+    <a class="q" href="https://wa.me/5588981802611?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Coast%20House%20e%20gostaria%20de%20reservar." target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2 1.2 2.3 1.4.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2Z"/></svg></span>
+      <b>Reserva direta</b><span>Falar no WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<section class="s welcome" id="casa">
+  <div class="wrap welcome-grid">
+    <div class="welcome-text">
+      <span class="eyebrow">Seja bem-vindo</span>
+      <p class="big">A poucos passos do mar, um refúgio onde o tempo desacelera e a alma respira.</p>
+      <p>Cada onda convida à calma, e a natureza desperta o essencial. Os dias seguem o ritmo do sol, e os pequenos momentos ganham significado. Um cenário perfeito para silenciar a mente, ouvir o mar e reconectar-se com o que há de mais verdadeiro: você.</p>
+      <p>A Coast House fica na Praia do Retirinho, em Aracati — a 175 km de Fortaleza e a 27 km de Canoa Quebrada. Uma casa completa e mobiliada, dentro de condomínio fechado, numa praia tranquila e isolada dos grandes centros. Programe-se e aproveite melhor cada momento.</p>
+    </div>
+    <div class="welcome-img"><img src="varanda.jpg" alt="Varanda da Coast House com vista para o mar ao entardecer"></div>
+  </div>
+</section>
+
+<!-- WIFI -->
+<section class="s wifi" id="wifi">
+  <div class="wrap">
+    <span class="eyebrow">Conexão</span>
+    <div class="wifi-card" style="margin-top:1.4rem">
+      <div class="wifi-qr"><img src="wifi-qr.svg" alt="QR code para conectar ao Wi-Fi da Coast House"></div>
+      <div style="width:100%">
+        <h2>Wi-Fi da casa</h2>
+        <p class="sub">Aponte a câmera do celular para o QR code e conecte automaticamente — ou use os dados abaixo.</p>
+        <div class="field">
+          <div><div class="k">Rede</div><div class="v" id="ssid">DENISSON</div></div>
+          <button class="copy" data-copy="DENISSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copiar</button>
+        </div>
+        <div class="field">
+          <div><div class="k">Senha</div><div class="v" id="pass">alfa2203</div></div>
+          <button class="copy" data-copy="alfa2203"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copiar</button>
+        </div>
+        <p class="wifi-hint">Problemas para conectar? Fale com o anfitrião na seção de contatos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="s" id="galeria">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">A casa</span>
+      <h2>Piscina, mar e conforto em cada ambiente</h2>
+      <p>Toque nas fotos para ampliar. Uma das poucas casas da região com piscina — a poucos passos do Atlântico.</p>
+    </div>
+    <div class="gal">
+      <figure class="wide tall"><img src="pool.jpg" alt="Piscina da Coast House com jardim e pergolado" loading="lazy"><figcaption>Piscina &amp; jardim</figcaption></figure>
+      <figure><img src="sala.jpg" alt="Sala de estar com sofá e almofadas" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
+      <figure><img src="cozinha.jpg" alt="Cozinha equipada com mesa de jantar" loading="lazy"><figcaption>Cozinha &amp; jantar</figcaption></figure>
+      <figure><img src="quarto1.jpg" alt="Suíte com cama de casal" loading="lazy"><figcaption>Suíte de casal</figcaption></figure>
+      <figure><img src="quarto2.jpg" alt="Suíte com camas de solteiro" loading="lazy"><figcaption>Suíte de solteiro</figcaption></figure>
+      <figure class="wide"><img src="cafe.jpg" alt="Mesa posta com café da manhã e frutas" loading="lazy"><figcaption>Café da manhã</figcaption></figure>
+      <figure><img src="banheiro.jpg" alt="Banheiro da casa" loading="lazy"><figcaption>Banheiro</figcaption></figure>
+      <figure><img src="pool2.jpg" alt="Piscina de frente para o gramado" loading="lazy"><figcaption>Área da piscina</figcaption></figure>
+      <figure class="wide"><img src="praia.jpg" alt="Praia do Retirinho ao pôr do sol com falésias" loading="lazy"><figcaption>Praia do Retirinho</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- MANUAL -->
+<section class="s" id="manual" style="background:var(--linen-2)">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Manual da casa</span>
+      <h2>Chegada e saída</h2>
+      <p>O essencial para uma estadia tranquila. Acomoda até 6 hóspedes.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Check-in <span class="tag">Chegada</span></h3>
+        <p style="color:var(--muted);margin-bottom:.25rem">Entrada das 09:00 às</p>
+        <p style="font-family:var(--disp);font-size:3.2rem;font-weight:600;color:var(--sea-deep);line-height:1">16:00</p>
+      </div>
+      <div class="card">
+        <h3>Check-out <span class="tag">Saída</span></h3>
+        <p style="color:var(--muted);margin-bottom:.25rem">Saída até as</p>
+        <p style="font-family:var(--disp);font-size:3.2rem;font-weight:600;color:var(--sea-deep);line-height:1">16:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMODIDADES -->
+<section class="s" id="comodidades">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Comodidades</span>
+      <h2>O que a casa oferece</h2>
+      <p>Estrutura completa para até 6 pessoas, em 2 suítes.</p>
+    </div>
+    <div class="amen">
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 15c2 0 2 1.5 4 1.5S8 15 10 15s2 1.5 4 1.5S16 15 18 15s2 1.5 4 1.5M2 20c2 0 2 1.5 4 1.5"/><path d="M6 15V6a2 2 0 0 1 4 0v.5"/></svg></span><div><b>Piscina privativa</b><span>Rara na região</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 18s2-2 5-2 5 2 5 2 2-2 5-2 5 2 5 2M2 13s2-2 5-2 5 2 5 2 2-2 5-2 5 2 5 2"/></svg></span><div><b>Acesso à praia</b><span>A poucos passos do mar</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a15 15 0 0 1 20 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg></span><div><b>Wi-Fi</b><span>Internet em toda a casa</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M3 20h18M8 16v4M16 16v4"/></svg></span><div><b>Smart TV</b><span>Streaming disponível</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v7a3 3 0 0 0 6 0V2M9 9v13M16 2c-1.5 1-2 3-2 6s.5 5 2 6v8"/></svg></span><div><b>Cozinha completa</b><span>Equipada e mobiliada</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M5 12a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2M6 16v3M18 16v3"/></svg></span><div><b>Ar-condicionado</b><span>Nas suítes</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2M7 8h6"/></svg></span><div><b>Espaço de trabalho</b><span>Para quem precisa</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 17H3v-6l2-5h11l4 5v6h-2M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm10 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/></svg></span><div><b>3 vagas de garagem</b><span>Estacionamento grátis</span></div></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span><div><b>Condomínio fechado</b><span>Segurança e tranquilidade</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="s rules" id="regras">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Boa convivência</span>
+      <h2>Regras da casa</h2>
+      <p>Para uma estadia agradável para todos, pedimos atenção a alguns pontos.</p>
+    </div>
+    <div class="rule-grid">
+      <div class="rule"><h4><span class="n">01</span> Até 6 hóspedes</h4><p>A capacidade máxima da casa é de 6 pessoas. Para receber visitas, combine antes com o anfitrião.</p></div>
+      <div class="rule"><h4><span class="n">02</span> Silêncio à noite</h4><p>Mantenha o som baixo após as 22h para respeitar os vizinhos do condomínio.</p></div>
+      <div class="rule"><h4><span class="n">03</span> Não fumar dentro</h4><p>Se for fumar, utilize apenas as áreas externas da casa.</p></div>
+      <div class="rule"><h4><span class="n">04</span> Piscina com cuidado</h4><p>Fique atento às crianças na área da piscina e evite levar objetos de vidro para perto dela.</p></div>
+      <div class="rule"><h4><span class="n">05</span> Cuide da casa</h4><p>Trate os móveis e utensílios com carinho. Itens danificados são de responsabilidade do hóspede.</p></div>
+      <div class="rule"><h4><span class="n">06</span> Água &amp; energia</h4><p>Ajude a economizar: apague as luzes e desligue o ar e aparelhos ao sair dos ambientes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL TIPS -->
+<section class="s" id="dicas">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Arredores</span>
+      <h2>Dicas da região</h2>
+      <p>O melhor do litoral leste do Ceará, pertinho da Coast House.</p>
+    </div>
+    <div class="tips">
+      <div class="tip">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+        <h4>Canoa Quebrada · 27 km</h4>
+        <p>A vila mais badalada do litoral leste.</p>
+        <ul>
+          <li>Passeio de buggy pelas dunas e falésias (com esquibunda e tirolesa)</li>
+          <li>Duna do pôr do sol, ao lado da vila</li>
+          <li>Broadway (Rua Dragão do Mar): bares, restaurantes e lojinhas</li>
+          <li>Comer: Costa Brava, El Argentino, Adega dos Portugueses</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 18s2-2 5-2 5 2 5 2 2-2 5-2 5 2 5 2M2 13s2-2 5-2 5 2 5 2 2-2 5-2 5 2 5 2"/><path d="M17 6l1.5 1.5"/></svg></div>
+        <h4>Icapuí · litoral leste</h4>
+        <p>O lado tranquilo e ecológico, rumo ao RN.</p>
+        <ul>
+          <li>Praia de Ponta Grossa: falésias, dunas e trilha de ~2 km até o mar</li>
+          <li>Praia da Redonda: bares de beira-mar e a capital da lagosta</li>
+          <li>Trilha das dunas móveis no fim de tarde</li>
+        </ul>
+      </div>
+      <div class="tip">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg></div>
+        <h4>Aqui na Coast House</h4>
+        <p>Sem sair do condomínio.</p>
+        <ul>
+          <li>Piscina o dia inteiro e mar a poucos passos</li>
+          <li>Pôr do sol e a lua sobre o Atlântico</li>
+          <li>Praia deserta e tranquila para longas caminhadas</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a class="btn btn-ghost" href="https://maps.app.goo.gl/hCBMNi6Her81qovC9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Abrir rota no Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INVEST -->
+<section class="invest" id="investir">
+  <div class="invest-bg"><img src="invest.jpg" alt="Praia do Retirinho, litoral de Aracati" loading="lazy"></div>
+  <div class="invest-inner wrap">
+    <span class="eyebrow">Gostou de ficar aqui?</span>
+    <h2>Esta casa também está à venda</h2>
+    <p>Se você se apaixonou pela Coast House, ela pode ser sua: a mesma casa mobiliada, com piscina, a poucos passos do mar, em condomínio fechado na Praia do Retirinho. E se quiser explorar mais opções, temos outras casas e terrenos à venda na mesma praia.</p>
+    <div class="btn-row">
+      <a class="btn btn-invest" href="https://wa.me/5588981802611?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20a%20Coast%20House.%20Pode%20me%20passar%20valor%20e%20condi%C3%A7%C3%B5es%3F" target="_blank" rel="noopener">
+        Saber o valor de venda
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline-l" href="https://www.mandingaimoveis.com.br/imoveis-a-venda-para-comprar/qualquer-cidade?bairro-condominio=bairro-praia-do-retirinho" target="_blank" rel="noopener">
+        Ver imóveis à venda
+      </a>
+    </div>
+    <div class="selo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Mandinga Imóveis · Praia do Retirinho, Aracati</div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="s contacts" id="contato">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">Precisa de ajuda?</span>
+      <h2>Fale com a gente</h2>
+      <p>Toque no número para ligar ou no ícone do WhatsApp para conversar. Resposta em média em até 1 hora.</p>
+    </div>
+    <div class="con-grid">
+      <div class="con">
+        <div class="av">G</div>
+        <div class="meta"><div class="role">Anfitrião · Mandinga Imóveis</div><div class="name">Guilherme</div><a class="num" href="tel:+5588981802611">(88) 98180-2611</a></div>
+        <a class="wa" href="https://wa.me/5588981802611?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Coast%20House." target="_blank" rel="noopener" aria-label="WhatsApp Guilherme"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2 1.2 2.3 1.4.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2Z"/></svg></a>
+      </div>
+      <div class="con">
+        <div class="av" style="background:#FF385C;color:#fff">A</div>
+        <div class="meta"><div class="role">Reserva &amp; avaliações</div><div class="name">Anúncio no Airbnb</div><span class="num">Coast House · Superhost 4,96</span></div>
+        <a class="wa" style="background:#FF385C;color:#fff" href="https://www.airbnb.com.br/rooms/1440081180322456859" target="_blank" rel="noopener" aria-label="Ver no Airbnb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.6 0 2.9 1 3.8 2.8 3.2 6.1 5.2 10.3 5.2 12.6A4.6 4.6 0 0 1 16.4 22c-1.6 0-2.8-.8-3.6-2.3l-.8-1.5-.8 1.5C10.4 21.2 9.2 22 7.6 22A4.6 4.6 0 0 1 3 17.4c0-2.3 2-6.5 5.2-12.6C9.1 3 10.4 2 12 2Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" id="reservar">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--straw-soft)">Até a próxima</span>
+    <div class="sep"></div>
+    <h2>Que você colecione lindas memórias à beira-mar</h2>
+    <p>Obrigado por chegar até aqui. Quer voltar? Reserve direto no WhatsApp e garanta a melhor condição — ou reserve pelo Airbnb e deixe a sua avaliação.</p>
+    <div class="cta-row">
+      <a class="btn btn-light" href="https://wa.me/5588981802611?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Coast%20House%20e%20gostaria%20de%20reservar." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Z"/></svg>
+        Reservar no WhatsApp
+      </a>
+      <a class="btn btn-airbnb" href="https://www.airbnb.com.br/rooms/1440081180322456859" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.6 0 2.9 1 3.8 2.8 3.2 6.1 5.2 10.3 5.2 12.6A4.6 4.6 0 0 1 16.4 22c-1.6 0-2.8-.8-3.6-2.3l-.8-1.5-.8 1.5C10.4 21.2 9.2 22 7.6 22A4.6 4.6 0 0 1 3 17.4c0-2.3 2-6.5 5.2-12.6C9.1 3 10.4 2 12 2Z"/></svg>
+        Ver no Airbnb
+      </a>
+    </div>
+    <p class="hash">Coast House · <b>Praia do Retirinho</b> · Aracati — Ceará</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5588981802611?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Coast%20House." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2 1.2 2.3 1.4.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb"><button class="x" id="lbx" aria-label="Fechar">&times;</button><img id="lbimg" src="" alt=""></div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>40)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy');
+      navigator.clipboard.writeText(t).then(function(){
+        var o=b.innerHTML;b.classList.add('done');b.textContent='Copiado!';
+        setTimeout(function(){b.classList.remove('done');b.innerHTML=o},1600);
+      });
+    });
+  });
+
+  var lb=document.getElementById('lb'),img=document.getElementById('lbimg');
+  document.querySelectorAll('.gal figure img').forEach(function(im){
+    im.addEventListener('click',function(){img.src=im.src;img.alt=im.alt;lb.classList.add('open')});
+  });
+  function close(){lb.classList.remove('open');img.src=''}
+  document.getElementById('lbx').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+</script>
+</body>
+</html>

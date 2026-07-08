@@ -1,0 +1,50 @@
+COAST HOUSE — GUIA DO HOSPEDE (site de pagina unica)
+=====================================================
+
+O QUE E ESTA PASTA
+------------------
+Site pronto (index.html + fotos + QR codes) da Coast House.
+Guia do hospede com Wi-Fi, comodidades, dicas da regiao, reserva
+direta no WhatsApp, botao do Airbnb e secao "esta casa esta a venda".
+
+ENDERECO FINAL (depois de publicar)
+-----------------------------------
+https://coast-house.pages.dev
+
+COMO PUBLICAR / ATUALIZAR (Cloudflare Pages - gratis)
+-----------------------------------------------------
+1. Precisa ter o Node.js instalado no PC.
+2. De 2 cliques em "deploy-auto.bat".
+3. Na PRIMEIRA vez, o navegador vai abrir uma pagina da Cloudflare
+   pedindo permissao (Allow). Voce clica em Allow/Permitir.
+   (Se ainda nao tiver conta Cloudflare, crie uma gratis antes.)
+4. Espere a mensagem "Deployment complete!" e o endereco .pages.dev.
+5. Para atualizar o site depois, e so dar 2 cliques no .bat de novo.
+
+BACKUP NO GITHUB (opcional)
+---------------------------
+1. Crie um repositorio publico chamado "coast-house".
+2. Suba TODOS os arquivos desta pasta (index.html + imagens + .svg).
+   Repo -> Add file -> Upload files -> Commit.
+3. Settings -> Pages -> Deploy from a branch -> main / (root) -> Save.
+
+DADOS USADOS NO SITE
+--------------------
+Wi-Fi: rede DENISSON / senha alfa2203
+WhatsApp reserva: (88) 98180-2611
+Airbnb: airbnb.com.br/rooms/1440081180322456859
+Imoveis a venda: mandingaimoveis.com.br (Praia do Retirinho)
+Google Maps: https://maps.app.goo.gl/hCBMNi6Her81qovC9
+
+REVISAR ANTES DE DIVULGAR
+-------------------------
+- Regras da casa: usei um padrao sensato (6 hospedes, silencio a noite,
+  nao fumar dentro, piscina com cuidado, cuidar da casa, economizar
+  agua/luz). Ajuste no index.html se quiser regras especificas suas.
+- QR-CODE-SITE.png: imprima e deixe na casa para o hospede abrir o guia.
+
+Arquivos:
+  index.html ......... o site
+  *.jpg, wifi-qr.svg . fotos + QR do Wi-Fi (usados pelo site)
+  QR-CODE-SITE.png ... QR da URL, para imprimir
+  deploy-auto.bat .... publica/atualiza no Cloudflare em 2 cliques
